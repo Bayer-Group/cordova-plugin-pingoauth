@@ -48,7 +48,7 @@ var onAuthenticationReady = function () {
 This is called after deviceready event passed by cordova . So you can straight away bootstrap on the receipt of this event
 
 #### Check if the user is already authenticated
-Window.plugins.Authentication.isDefined 
+Window.cordova.plugins.Authentication.isDefined 
 
 if this is true, the user has already logged in atleast once and it automatically retrieves the access token and allows you into the app
 
@@ -56,13 +56,13 @@ if this is false, the user is logging in for the first time or has reset all his
 
 #### Login and retrieve the user profile information
 
-Window.plugins.Authentication.Login(username, password, successcallback, errorcallback,refreshautomatically)
+Window.cordova.plugins.Authentication.Login(username, password, successcallback, errorcallback,refreshautomatically)
 
 If you dont want the current session to refresh automatically in the background, pass false for the last argument. But I would strongly advise against doing this.
 
 #### Refresh the ping access token
 
-Window.plugins.Authentication.Refresh(successcallback, errorcallback, refresh_token(optional))
+Window.cordova.plugins.Authentication.Refresh(successcallback, errorcallback, refresh_token(optional))
 
 The last argument is optional. If it is not passed, it will take the last retrieved refresh token. Use this function to trigger a refresh in case you ever need to refresh manually. Typically the refresh automatically happens in the background and usage of this function is limited
 
