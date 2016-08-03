@@ -60,6 +60,28 @@ Window.cordova.plugins.Authentication.Login(username, password, successcallback,
 
 If you dont want the current session to refresh automatically in the background, pass false for the last argument. But I would strongly advise against doing this.
 
+#### Access the access token and the user profile information
+
+If the login/refresh is successful, the plugin puts two objects in the localstorage
+
+You can access the oauth access and refresh token from this object
+
+    var OauthDetails = localStorage.getItem("OAUTH_DETAILS") (You might need to parse it to Json)
+ 
+Alternatively you can access the access and refresh token from the Authentication object
+
+  var OauthDetails =  window.cordova.plugins.Authentication.OAuthData
+   
+Similarly you can access the user information from the local storage
+
+   var UserDetails = localStorage.getItem("USERDETAILS") (you might need to parse it to json)
+
+Alternatively you can access the user details from Authentication object
+
+ var _userObject = window.cordova.plugins.Authentication.UserDetails;
+
+When the back ground refresh happens, all these objects are automatically refreshed.
+
 #### Refresh the ping access token
 
 Window.cordova.plugins.Authentication.Refresh(successcallback, errorcallback, refresh_token(optional))
@@ -85,6 +107,8 @@ window.cordova.plugins.Authentication.LogOut();
 
 This logsout the user and deletes all his login data from his phone, thus enforcing re-login. Please use this with caution
 
+#Conclusion
+This has been written to eliminate adding a lot of redundant code in cordova based applications. If you come across any issues using this or have any good ideas, Please feel free to add it as an issue.
 
 
 
