@@ -29,7 +29,6 @@ var Authentication = function () {
             //Global profile Authentication event
             _that.OauthTestURL = value.oauthurl;
             _that.ClientID = value.client_id;
-            _that.ClientSecret = value.client_secret;
             _that.AppName = value.appname;
             _that.OfflineMode = value.offline_mode;
             _that.ProfileAPI = value.profileapi;
@@ -55,7 +54,7 @@ var Authentication = function () {
 
         },
                   function (error) { console.log("No user information present in the device") },
-                  ["oauthurl", "client_id", "client_secret", "appname", "profileapi", "offline_mode"]
+                  ["oauthurl", "client_id", "appname", "profileapi", "offline_mode"]
         );
     }
 }
@@ -120,7 +119,7 @@ Authentication.prototype.CheckAndGettoken = function (successCallback, errorCall
 
 //function to do the oauth call and login
 Authentication.prototype.DoOauthCall = function (userName, passWord, success, error) {
-    if (this.OauthTestURL && this.ClientID && this.ClientSecret) {
+    if (this.OauthTestURL && this.ClientID ) {
         _that = this;
         $.ajax({
             url: _that.OauthTestURL,
@@ -128,7 +127,6 @@ Authentication.prototype.DoOauthCall = function (userName, passWord, success, er
             dataType: "json",
             data: {
                 client_id: _that.ClientID,
-                client_secret: _that.ClientSecret,
                 grant_type: "password",
                 username: userName,
                 password: passWord
@@ -145,7 +143,7 @@ Authentication.prototype.DoOauthCall = function (userName, passWord, success, er
 
 //function to refresh the ping token
 Authentication.prototype.RefreshToken = function (success, error, refresh_token) {
-    if (this.OauthTestURL && this.ClientID && this.ClientSecret) {
+    if (this.OauthTestURL && this.ClientID ) {
         _that = this;
         $.ajax({
             url: _that.OauthTestURL,
@@ -153,7 +151,6 @@ Authentication.prototype.RefreshToken = function (success, error, refresh_token)
             dataType: "json",
             data: {
                 client_id: _that.ClientID,
-                client_secret: _that.ClientSecret,
                 grant_type: "refresh_token",
                 refresh_token: ((refresh_token) ? refresh_token : _that.OauthData.refresh_token)
             },
@@ -272,7 +269,7 @@ Authentication.prototype.Login = function (userName, passWord, successCallback, 
 
 //function to retrieve the profile information
 Authentication.prototype.RetrieveUserDetails = function (success, error, access_token) {
-    if (this.ProfileAPI && this.ClientID && this.ClientSecret) {
+    if (this.ProfileAPI && this.ClientID) {
         _that = this;
         $.ajax({
             url: _that.ProfileAPI,
