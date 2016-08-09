@@ -14,7 +14,6 @@
   <platform name="ios">
     <preference name="oauthurl" />
     <preference name="client_id" />
-    <preference name="client_secret" />
     <preference name="appname" />
     <preference name="offline_mode" default="No" />
     <preference name="profileapi" />
@@ -23,9 +22,6 @@
     </config-file>
     <config-file target="config.xml" parent="/*">
       <preference name="client_id" value="$CLIENT_ID" />
-    </config-file>
-    <config-file target="config.xml" parent="/*">
-      <preference name="client_secret" value="$CLIENT_SECRET" />
     </config-file>
     <config-file target="config.xml" parent="/*">
       <preference name="appname" value="$APPNAME" />
@@ -40,26 +36,14 @@
   <platform name="android">
     <preference name="oauthurl" />
     <preference name="client_id" />
-    <preference name="client_secret" />
     <preference name="appname" />
     <preference name="offline_mode" default="No" />
     <preference name="profileapi" />
-    <!--<config-file target="AndroidManifest.xml" parent="/manifest/application">
-      <meta-data  android:name="oauthurl" android:value="$OAUTHURL" />
-      <meta-data  android:name="client_id" android:value="$CLIENT_ID" />
-      <meta-data  android:name="client_secret" android:value="$CLIENT_SECRET" />
-      <meta-data  android:name="appname" android:value="$APPNAME" />
-      <meta-data  android:name="profileapi" android:value="$PROFILEAPI" />
-      <meta-data  android:name="offline_mode" android:value="$OFFLINE_MODE" />
-    </config-file>-->
     <config-file target="res/xml/config.xml" parent="/*">
       <preference name="oauthurl" value="$OAUTHURL" />
     </config-file>
     <config-file target="res/xml/config.xml" parent="/*">
       <preference name="client_id" value="$CLIENT_ID" />
-    </config-file>
-    <config-file target="res/xml/config.xml" parent="/*">
-      <preference name="client_secret" value="$CLIENT_SECRET" />
     </config-file>
     <config-file target="res/xml/config.xml" parent="/*">
       <preference name="appname" value="$APPNAME" />
