@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-pingoauth-tests"
+    version="0.0.1">
+
+  <name>Authentication Tests</name>
+  <author>Srinath Viswanathan</author>
+
+  <description>Test for cordova-plugin-pingoauth</description>
+
+  <license>MIT</license>
+
+  <keywords>Authentication, Tests</keywords>
+
+  <js-module src="tests.js" name="tests">
+  </js-module>
+</plugin>
