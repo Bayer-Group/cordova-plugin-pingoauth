@@ -1,0 +1,9 @@
+{
+  "name": "Cordova Ping OAuth Plugin",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MonsantoCo/cordova-plugin-pingoauth.git"
+  }
+}
