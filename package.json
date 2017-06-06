@@ -1,5 +1,5 @@
 {
-  "name": "Cordova Ping OAuth Plugin",
+  "name": "cordova-plugin-pingoauth",
   "version": "1.0.0",
   "private": true,
   "repository": {
