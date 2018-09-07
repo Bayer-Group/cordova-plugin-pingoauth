@@ -274,13 +274,13 @@ Authentication.prototype.RetrieveUserDetails = function (success, error, access_
         $.ajax({
             url: _that.ProfileAPI,
             headers: {
-                "Authorization": "Bearer " + ((access_token) ? access_token : _that.OauthData.access_token)
+                "Authorization": "Bearer " + ((access_token) ? access_token : _that.OauthData.access_token),
+                "Content-Type": "application/json",
             },
             type: "POST",
-            dataType: "json",
-            data: JSON.stringify({
+            data: {
                 "query" : "{ getCurrentUser { id preferredName{ full first last middle } organization{ id name } brand businessArea photo officePhone officeLocation company{ code } site { id name lat long timezone country{ id name code2 code3 region{ id name }}} email employeeId employeeType applications{ id name entitlements{ id name code}} mailStop manager{ id preferredName{ full }}} }"
-            }),
+            },
             success: success,
             error: error,
             crossDomain: true,
