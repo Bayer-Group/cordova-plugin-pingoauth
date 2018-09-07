@@ -32,6 +32,7 @@ var Authentication = function () {
             _that.AppName = value.appname;
             _that.OfflineMode = value.offline_mode;
             _that.ProfileAPI = value.profileapi;
+            _that.ProfileApiQuery = value.profileapiquery;
             _that.SecuredStorage = new cordova.plugins.SecureStorage(
                                    function () { console.log("Key chain initalized for" + _that.AppName); },
                                                  function (error) { console.log('Error ', error) },
@@ -54,7 +55,7 @@ var Authentication = function () {
 
         },
                   function (error) { console.log("No user information present in the device") },
-                  ["oauthurl", "client_id", "appname", "profileapi", "offline_mode"]
+                  ["oauthurl", "client_id", "appname", "profileapi", "profileapiquery", "offline_mode"]
         );
     }
 }
@@ -278,9 +279,7 @@ Authentication.prototype.RetrieveUserDetails = function (success, error, access_
                 "Content-Type": "application/json",
             },
             type: "POST",
-            data: JSON.stringify({
-                "query" : "{ getCurrentUser { id preferredName{ full first last middle } organization{ id name } brand businessArea photo officePhone officeLocation company{ code } site { id name lat long timezone country{ id name code2 code3 region{ id name }}} email employeeId employeeType applications{ id name entitlements{ id name code}} mailStop manager{ id preferredName{ full }}} }"
-            }),
+            data: JSON.stringify(_that.ProfileApiQuery),
             success: success,
             error: error,
             crossDomain: true,
