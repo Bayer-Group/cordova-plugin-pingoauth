@@ -32,7 +32,7 @@ var Authentication = function () {
             _that.AppName = value.appname;
             _that.OfflineMode = value.offline_mode;
             _that.ProfileAPI = value.profileapi;
-            _that.ProfileQuery = value.profilequery;
+            _that.ProfileQuery = '{"query" :' + value.profilequery + ' }';
             _that.SecuredStorage = new cordova.plugins.SecureStorage(
                                    function () { console.log("Key chain initalized for" + _that.AppName); },
                                                  function (error) { console.log('Error ', error) },
