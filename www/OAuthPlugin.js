@@ -276,7 +276,11 @@ Authentication.prototype.RetrieveUserDetails = function (success, error, access_
             headers: {
                 "Authorization": "Bearer " + ((access_token) ? access_token : _that.OauthData.access_token)
             },
+            type: "POST",
             dataType: "json",
+            data: {
+                "query" : "{ getCurrentUser { id preferredName{ full first last middle } organization{ id name } brand businessArea photo officePhone officeLocation company{ code } site { id name lat long timezone country{ id name code2 code3 region{ id name }}} email employeeId employeeType applications{ id name entitlements{ id name code}} mailStop manager{ id preferredName{ full }}} }"
+            },
             success: success,
             error: error,
             crossDomain: true,
@@ -356,7 +360,3 @@ if (!cordova.plugins.Authentication) {
 if (typeof module != 'undefined' && module.exports) {
     module.exports = SecureStorage;
 }
-
-
-
-
