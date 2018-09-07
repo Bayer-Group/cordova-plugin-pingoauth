@@ -17,7 +17,7 @@
     <preference name="appname" />
     <preference name="offline_mode" default="No" />
     <preference name="profileapi" />
-    <preference name="profileapiquery" />
+    <preference name="profilequery" />
     <config-file target="config.xml" parent="/*">
       <preference name="oauthurl" value="$OAUTHURL" />
     </config-file>
@@ -34,7 +34,7 @@
       <preference name="profileapi" value="$PROFILEAPI" />
     </config-file>
     <config-file target="config.xml" parent="/*">
-      <preference name="profileapiquery" value="$PROFILEAPIQUERY" />
+      <preference name="profilequery" value="$PROFILEQUERY" />
     </config-file>
   </platform>
   <platform name="android">
@@ -43,7 +43,7 @@
     <preference name="appname" />
     <preference name="offline_mode" default="No" />
     <preference name="profileapi" />
-    <preference name="profileapiquery" />
+    <preference name="profilequery" />
     <config-file target="res/xml/config.xml" parent="/*">
       <preference name="oauthurl" value="$OAUTHURL" />
     </config-file>
@@ -60,7 +60,7 @@
       <preference name="profileapi" value="$PROFILEAPI" />
     </config-file>
     <config-file target="res/xml/config.xml" parent="/*">
-      <preference name="profileapiquery" value="$PROFILEAPIQUERY" />
+      <preference name="profilequery" value="$PROFILEQUERY" />
     </config-file>
   </platform>
 </plugin>
