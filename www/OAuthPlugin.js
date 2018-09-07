@@ -278,9 +278,9 @@ Authentication.prototype.RetrieveUserDetails = function (success, error, access_
             },
             type: "POST",
             dataType: "json",
-            data: {
+            data: JSON.stringify({
                 "query" : "{ getCurrentUser { id preferredName{ full first last middle } organization{ id name } brand businessArea photo officePhone officeLocation company{ code } site { id name lat long timezone country{ id name code2 code3 region{ id name }}} email employeeId employeeType applications{ id name entitlements{ id name code}} mailStop manager{ id preferredName{ full }}} }"
-            },
+            }),
             success: success,
             error: error,
             crossDomain: true,
