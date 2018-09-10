@@ -32,6 +32,7 @@ var Authentication = function () {
             _that.AppName = value.appname;
             _that.OfflineMode = value.offline_mode;
             _that.ProfileAPI = value.profileapi;
+            _that.ProfileQuery = JSON.parse('{"query" : "' + value.profilequery + '" }');
             _that.SecuredStorage = new cordova.plugins.SecureStorage(
                                    function () { console.log("Key chain initalized for" + _that.AppName); },
                                                  function (error) { console.log('Error ', error) },
@@ -54,7 +55,7 @@ var Authentication = function () {
 
         },
                   function (error) { console.log("No user information present in the device") },
-                  ["oauthurl", "client_id", "appname", "profileapi", "offline_mode"]
+                  ["oauthurl", "client_id", "appname", "profileapi", "profilequery", "offline_mode"]
         );
     }
 }
@@ -274,9 +275,11 @@ Authentication.prototype.RetrieveUserDetails = function (success, error, access_
         $.ajax({
             url: _that.ProfileAPI,
             headers: {
-                "Authorization": "Bearer " + ((access_token) ? access_token : _that.OauthData.access_token)
+                "Authorization": "Bearer " + ((access_token) ? access_token : _that.OauthData.access_token),
+                "Content-Type": "application/json",
             },
-            dataType: "json",
+            type: "POST",
+            data: JSON.stringify(_that.ProfileQuery),
             success: success,
             error: error,
             crossDomain: true,
@@ -356,7 +359,3 @@ if (!cordova.plugins.Authentication) {
 if (typeof module != 'undefined' && module.exports) {
     module.exports = SecureStorage;
 }
-
-
-
-

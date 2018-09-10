@@ -25,7 +25,7 @@ This plugin can be installed through the cordova command line interface.
 
 ```
 cordova plugin add https://github.com/MonsantoCo/cordova-plugin-pingoauth.git --variable APPNAME="{APPNAME}" --
-variable OAUTHURL="{Ping API}" --variable CLIENT_ID="XXXXXX" --variable OFFLINE_MODE="Yes" --variable PROFILEAPI="{API for getting the user profile information}"
+variable OAUTHURL="{Ping API}" --variable CLIENT_ID="XXXXXX" --variable OFFLINE_MODE="Yes" --variable PROFILEAPI="{API for getting the user profile information} --variable PROFILEQUERY="{getCurrentUser {GRAPHQL query}"
 ```
 
 #Plugin API
